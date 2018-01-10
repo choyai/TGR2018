@@ -54,6 +54,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-setInterval(function(){script(5)}, 5000);
+// setInterval(function(){script(5)}, 5000);
 
 module.exports = app;

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include head.ejs %>
+</head>
+
+<body>
+  <header>
+    <% include header.ejs %>
+  </header>
+  <main>
+    <div class="jumbotron">
+      <table>
+        <% for(var i=0; i < data.length; i++) { %>
+          <tr>
+            <td style="width:80px;">
+              <%= data[i].sensID %>
+            </td>
+            <td style="width:80px;">
+              <%= data[i].val_x %>
+            </td>
+            <td style="width:80px;">
+              <%= data[i].val_y %>
+            </td>
+            <td>
+              <%= data[i].val_z %>
+            </td style="width:80px;">
+            <td>
+              <%= data[i].date %>
+            </td>
+          </tr>
+        <% } %>
+      </table>
+    </div>
+  </main>
+  <footer>
+    <% include footer.ejs %>
+  </footer>
+</body>
+
+</html>
