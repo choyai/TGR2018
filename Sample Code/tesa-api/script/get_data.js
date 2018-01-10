@@ -20,7 +20,7 @@ function get_data(teamID){
     //     path: '/',
     //     rejectUnauthorized: false
     // });
-    // console.log('adding data for team ' + teamID);
+    console.log('adding data for team ' + teamID);
 
     var options = ({
         method: 'GET',
@@ -36,7 +36,7 @@ function get_data(teamID){
         if(data != undefined){
           data[data.length-1].teamID = teamID;
             insert_to_db('pressure', data[data.length - 1]);
-            console.log(data);
+            //console.log(data);
         }
     });
 
@@ -47,7 +47,7 @@ function get_data(teamID){
         if(data != undefined){
         data[data.length-1].teamID = teamID;;
             insert_to_db('temperature', data[data.length - 1]);
-            console.log(data);
+            //console.log(data);
         }
     });
 
@@ -58,7 +58,7 @@ function get_data(teamID){
         if(data != undefined){
         data[data.length-1].teamID = teamID;;
             insert_to_db('humidity', data[data.length - 1]);
-            console.log(data);
+            //console.log(data);
         }
     });
 
@@ -69,7 +69,7 @@ function get_data(teamID){
         if(data != undefined){
         data[data.length-1].teamID = teamID;;
             insert_to_db('gyroscope', data[data.length - 1]);
-            console.log(data);
+            //console.log(data);
         }
     });
 
@@ -80,7 +80,7 @@ function get_data(teamID){
         if(data != undefined){
         data[data.length-1].teamID = teamID;;
             insert_to_db('accelerometer', data[data.length - 1]);
-            console.log(data);
+            //console.log(data);
         }
     });
 
@@ -91,7 +91,7 @@ function get_data(teamID){
         if(data != undefined){
         data[data.length-1].teamID = teamID;;
             insert_to_db('magnetometer', data[data.length - 1]);
-            console.log(data);
+            //console.log(data);
         }
     });
 
@@ -102,7 +102,7 @@ function get_data(teamID){
         if(data != undefined){
         data[data.length-1].teamID = teamID;;
             insert_to_db('leds', data[data.length - 1]);
-            console.log(data);
+            //console.log(data);
         }
     });
 
@@ -113,7 +113,7 @@ function get_data(teamID){
         if(data != undefined){
         data[data.length-1].teamID = teamID;;
             insert_to_db('din1', data[data.length - 1]);
-            console.log(data);
+            //console.log(data);
         }
     });
 
@@ -124,7 +124,7 @@ function get_data(teamID){
         if(data != undefined){
         data[data.length-1].teamID = teamID;;
             insert_to_db('din2', data[data.length - 1]);
-            console.log(data);
+            //console.log(data);
         }
     });
 
@@ -135,7 +135,7 @@ function get_data(teamID){
         if(data != undefined){
         data[data.length-1].teamID = teamID;;
             insert_to_db('din3', data[data.length - 1]);
-            console.log(data);
+            //console.log(data);
         }
     });
 
@@ -147,7 +147,7 @@ function get_data(teamID){
           data[data.length-1].teamID = teamID;;
             insert_to_db('din4', data[data.length - 1]);
 
-            console.log(data);
+            //console.log(data);
         }
     });
 
@@ -158,7 +158,7 @@ function get_data(teamID){
         if(data != undefined){
           data[data.length-1].teamID = teamID;;
             insert_to_db('din5', data[data.length - 1]);
-            console.log(data);
+            //console.log(data);
         }
     });
 }
