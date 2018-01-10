@@ -14,19 +14,20 @@ function insert_to_db(table, row){
 }
 
 function get_data(teamID){
-    var agent = new https.Agent({
-        host: 'loraiot.cattelecom.com',
-        port: '443',
-        path: '/',
-        rejectUnauthorized: false
-    });
+    // var agent = new https.Agent({
+    //     host: 'loraiot.cattelecom.com',
+    //     port: '443',
+    //     path: '/',
+    //     rejectUnauthorized: false
+    // });
     var options = ({
         method: 'GET',
-        agent: agent,
+        // agent: agent,
         header: { 'Content-Type': 'aaplication/json'}
     });
 
-    options.url = 'https://loraiot.cattelecom.com/api/pressure/'+teamID+'/1'
+    //options.url = 'https://loraiot.cattelecom.com/api/pressure/'+teamID+'/1'
+    options.url = 'http://10.0.0.10/api/pressure/'+teamID+'/1'
     request(options, function(err, res, body){
         if (err) throw err;
         var data = JSON.parse(body).data;
@@ -35,7 +36,7 @@ function get_data(teamID){
         }
     });
 
-    options.url = 'https://loraiot.cattelecom.com/api/temperature/'+teamID+'/1'
+    options.url = 'http://10.0.0.10/api/temperature/'+teamID+'/1'
     request(options, function(err, res, body){
         if (err) throw err;
         var data = JSON.parse(body).data;
@@ -44,7 +45,7 @@ function get_data(teamID){
         }
     });
 
-    options.url = 'https://loraiot.cattelecom.com/api/humidity/'+teamID+'/1'
+    options.url = 'http://10.0.0.10/api/humidity/'+teamID+'/1'
     request(options, function(err, res, body){
         if (err) throw err;
         var data = JSON.parse(body).data;
@@ -53,7 +54,7 @@ function get_data(teamID){
         }
     });
 
-    options.url = 'https://loraiot.cattelecom.com/api/gyroscope/'+teamID+'/1'
+    options.url = 'http://10.0.0.10/api/gyroscope/'+teamID+'/1'
     request(options, function(err, res, body){
         if (err) throw err;
         var data = JSON.parse(body).data;
@@ -62,7 +63,7 @@ function get_data(teamID){
         }
     });
 
-    options.url = 'https://loraiot.cattelecom.com/api/accelerometer/'+teamID+'/1'
+    options.url = 'http://10.0.0.10/api/accelerometer/'+teamID+'/1'
     request(options, function(err, res, body){
         if (err) throw err;
         var data = JSON.parse(body).data;
@@ -71,7 +72,7 @@ function get_data(teamID){
         }
     });
 
-    options.url = 'https://loraiot.cattelecom.com/api/magnetometer/'+teamID+'/1'
+    options.url = 'http://10.0.0.10/api/magnetometer/'+teamID+'/1'
     request(options, function(err, res, body){
         if (err) throw err;
         var data = JSON.parse(body).data;
@@ -80,7 +81,7 @@ function get_data(teamID){
         }
     });
 
-    options.url = 'https://loraiot.cattelecom.com/api/leds/'+teamID+'/1'
+    options.url = 'http://10.0.0.10/api/leds/'+teamID+'/1'
     request(options, function(err, res, body){
         if (err) throw err;
         var data = JSON.parse(body).data;
@@ -89,7 +90,7 @@ function get_data(teamID){
         }
     });
 
-    options.url = 'https://loraiot.cattelecom.com/api/din1/'+teamID+'/1'
+    options.url = 'http://10.0.0.10/api/din1/'+teamID+'/1'
     request(options, function(err, res, body){
         if (err) throw err;
         var data = JSON.parse(body).data;
@@ -98,7 +99,7 @@ function get_data(teamID){
         }
     });
 
-    options.url = 'https://loraiot.cattelecom.com/api/din2/'+teamID+'/1'
+    options.url = 'http://10.0.0.10/api/din2/'+teamID+'/1'
     request(options, function(err, res, body){
         if (err) throw err;
         var data = JSON.parse(body).data;
@@ -107,7 +108,7 @@ function get_data(teamID){
         }
     });
 
-    options.url = 'https://loraiot.cattelecom.com/api/din3/'+teamID+'/1'
+    options.url = 'http://10.0.0.10/api/din3/'+teamID+'/1'
     request(options, function(err, res, body){
         if (err) throw err;
         var data = JSON.parse(body).data;
@@ -116,7 +117,7 @@ function get_data(teamID){
         }
     });
 
-    options.url = 'https://loraiot.cattelecom.com/api/din4/'+teamID+'/1'
+    options.url = 'http://10.0.0.10/api/din4/'+teamID+'/1'
     request(options, function(err, res, body){
         if (err) throw err;
         var data = JSON.parse(body).data;
@@ -125,7 +126,7 @@ function get_data(teamID){
         }
     });
 
-    options.url = 'https://loraiot.cattelecom.com/api/din5/'+teamID+'/1'
+    options.url = 'http://10.0.0.10/api/din5/'+teamID+'/1'
     request(options, function(err, res, body){
         if (err) throw err;
         var data = JSON.parse(body).data;
