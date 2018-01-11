@@ -12,19 +12,30 @@
   <main>
     <div class="jumbotron">
       <table>
+        <tr>
+          <td style="width:80px;">
+            sensID
+          </td>
+          <td style="width:100px;">
+            val
+          </td>
+          <td style="width:80px;">
+            timestamp
+          </td>
+        </tr>
         <% for(var i=0; i < data.length; i++) { %>
           <tr>
             <td style="width:80px;">
               <%= data[i].sensID %>
             </td>
-            <td>
-              <%= data[i].val %> hpa
+            <td style="width:100px;">
+              <%= data[i].val %>
             </td>
-            <td>
+            <td style="width:80px;">
               <%= data[i].date %>
             </td>
           </tr>
-        <% } %>
+          <% } %>
       </table>
     </div>
   </main>

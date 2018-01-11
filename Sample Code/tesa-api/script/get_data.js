@@ -20,7 +20,7 @@ function get_data(teamID){
     //     path: '/',
     //     rejectUnauthorized: false
     // });
-    console.log('adding data for team ' + teamID);
+    // console.log('adding data for team ' + teamID);
 
     var options = ({
         method: 'GET',
