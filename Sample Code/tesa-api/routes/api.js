@@ -26,6 +26,8 @@ const status = {
   }
 };
 
+//GET sensor data from db with N = number of results
+
 router.get('/:table/:teamID/:N', function(req, res) {
   var table = req.params.table;
   var teamID = req.params.teamID;
@@ -58,16 +60,27 @@ router.get('/:table/:teamID/:N', function(req, res) {
   });
 });
 
-router.get(':time/:table/:teamID/', function(req, res) {
+//GET sensor data for 30 minutes prior to timestamp
+
+router.get('/time/:table/:teamID/:timestamp', function(req, res) {
   var table = req.params.table;
   var teamID = req.params.teamID;
-  var time = req.params.time;
+  var timestamp = new Date(parseInt(req.params.timestamp));
+  var unixtime = timestamp.getTime();
+  var timemin = new Date(unixtime - 1800000);
+  console.log(timemin);
+  console.log(unixtime);
+  console.log(timestamp);
   var query = db.model(table).find({
-    teamID: teamID
+    teamID: teamID,
+    date: {
+      '$lte': timestamp
+    },
+    // date: {
+    //   '$gt': timemin
+    // }
   });
-  if (N != 'all') {
-    query = query.limit(parseInt(N));
-  }
+
   query.exec(function(err, data) {
     if (err) {
       res.send(err);
@@ -82,15 +95,15 @@ router.get(':time/:table/:teamID/', function(req, res) {
       //     statusDesc: status["00"].desc,
       //     data: data
       // });
-      console.log(data);
-      res.render('request', {
+      // console.log(data);
+      res.render(table, {
         data: data
       });
     }
   });
 });
 
-
+// POST new data to table
 router.post('/:table', function(req, res) {
   var table = req.params.table;
   var schema = db.model(table);
@@ -101,20 +114,23 @@ router.post('/:table', function(req, res) {
   });
 });
 
-router.post('/time/:table/:teamID', function(req, res) {
+// POST timestamp at which to redirect to
+
+router.post('/:table/:teamID/:N', function(req, res) {
   var table = req.params.table;
   // var schema = db.model(table);
   // var data = new schema(req.body);
   // data.save(function(err, result){
   //     if (err) res.send(err);
-  //     else res.send('success');
+  //     else res.send('success');a
   // });
-  time = req.body.time;
-  table = req.params.table;
-  teamID = req.params.teamID;
+  var timestamp = req.body.timestamp;
+  var table = req.params.table;
+  var teamID = req.params.teamID;
   if (typeof time === 'Date') {
-
-    res.redirect();
+    res.redirect('/:table/:teamID/:timestamp');
+  } else {
+    res.send('error, time is not time');
   }
 });
 

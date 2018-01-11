@@ -2,149 +2,149 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var pressure = new Schema({
-    teamID: {
-        type: Number
-    },
-    sensID: {
-        type: String
-    },
-    val: {
-        type: String
-    },
-    date: {
-        type: String,
-        default: Date.now()
-    }
+  teamID: {
+    type: Number
+  },
+  sensID: {
+    type: String
+  },
+  val: {
+    type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 var temperature = new Schema({
-    teamID: {
-        type: Number
-    },
-    sensID: {
-        type: String
-    },
-    val: {
-        type: String
-    },
-    date: {
-        type: String,
-        default: Date.now()
-    }
+  teamID: {
+    type: Number
+  },
+  sensID: {
+    type: String
+  },
+  val: {
+    type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 var humidity = new Schema({
-    teamID: {
-        type: Number
-    },
-    sensID: {
-        type: String
-    },
-    val: {
-        type: String
-    },
-    date: {
-        type: String,
-        default: Date.now()
-    }
+  teamID: {
+    type: Number
+  },
+  sensID: {
+    type: String
+  },
+  val: {
+    type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 var gyroscope = new Schema({
-    teamID: {
-        type: Number
-    },
-    sensID: {
-        type: String
-    },
-    val_x: {
-        type: String
-    },
-    val_y: {
-        type: String
-    },
-    val_z: {
-        type: String
-    },
-    date: {
-        type: String,
-        default: Date.now()
-    }
+  teamID: {
+    type: Number
+  },
+  sensID: {
+    type: String
+  },
+  val_x: {
+    type: String
+  },
+  val_y: {
+    type: String
+  },
+  val_z: {
+    type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 var accelerometer = new Schema({
-    teamID: {
-        type: Number
-    },
-    sensID: {
-        type: String
-    },
-    val_x: {
-        type: String
-    },
-    val_y: {
-        type: String
-    },
-    val_z: {
-        type: String
-    },
-    date: {
-        type: String,
-        default: Date.now()
-    }
+  teamID: {
+    type: Number
+  },
+  sensID: {
+    type: String
+  },
+  val_x: {
+    type: String
+  },
+  val_y: {
+    type: String
+  },
+  val_z: {
+    type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 var magnetometer = new Schema({
-    teamID: {
-        type: Number
-    },
-    sensID: {
-        type: String
-    },
-    val_x: {
-        type: String
-    },
-    val_y: {
-        type: String
-    },
-    val_z: {
-        type: String
-    },
-    date: {
-        type: String,
-        default: Date.now()
-    }
+  teamID: {
+    type: Number
+  },
+  sensID: {
+    type: String
+  },
+  val_x: {
+    type: String
+  },
+  val_y: {
+    type: String
+  },
+  val_z: {
+    type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 var leds = new Schema({
-    teamID: {
-        type: Number
-    },
-    sensID: {
-        type: String
-    },
-    val: {
-        type: String
-    },
-    date: {
-        type: String,
-        default: Date.now()
-    }
+  teamID: {
+    type: Number
+  },
+  sensID: {
+    type: String
+  },
+  val: {
+    type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 var din = new Schema({
-    teamID: {
-        type: Number
-    },
-    sensID: {
-        type: String
-    },
-    val: {
-        type: String
-    },
-    date: {
-        type: String,
-        default: Date.now()
-    }
+  teamID: {
+    type: Number
+  },
+  sensID: {
+    type: String
+  },
+  val: {
+    type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 

@@ -55,7 +55,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-// setInterval(function(){script(5)}, 5000);
+var i = [1, 3, 5, 7, 31, 47];
+setInterval(function() {
+  script(5)
+}, 5000);
 
 module.exports = app;
