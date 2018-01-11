@@ -9,48 +9,56 @@
   <header>
     <% include header.ejs %>
   </header>
-  <main>
-    <div class="jumbotron">
-      <table>
-        <tr>
-          <td style="width:80px;">
-            sensID
-          </td>
-          <td style="width:80px;">
-            val_x
-          </td>
-          <td style="width:200px;">
-            val_y
-          </td>
-          <td style="width:80px;">
-            val_z
-          </td>
-          <td style="width:200px;">
-            timestamp
-          </td>
-        </tr>
-        <% for(var i=0; i < data.length; i++) { %>
-          <tr>
-            <td style="width:80px;">
-              <%= data[i].sensID %>
-            </td>
-            <td style="width:80px;">
-              <%= data[i].val_x %>
-            </td>
-            <td style="width:200px;">
-              <%= data[i].val_y %>
-            </td>
-            <td style="width:80px;">
-              <%= data[i].val_z %>
-            </td>
-            <td style="width:200px;">
-              <%= data[i].date %>
-            </td>
-          </tr>
-          <% } %>
-      </table>
+  <section id="fh5co-home" data-section="home" >
+  <div class="gradient"></div>
+  <div class="container">
+    <div class="text-wrap">
+      <div class="text-innerr">
+          <div class="col-md-12 section-heading text-center" >
+  					<h2 style="color: white;">Accelerometer</h2>
+            <div class="jumbotron">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="text-center">sensID</th>
+                    <th class="text-center">val_X</th>
+                    <th class="text-center">val_y</th>
+                    <th class="text-center">val_z</th>
+                    <th class="text-center">Timestamp</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i < data.length; i++) { %>
+                    <tr>
+                      <td>
+                        <%= data[i].sensID %>
+                      </td>
+                      <td>
+                        <%= data[i].val_x %>
+                      </td>
+                      <td>
+                        <%= data[i].val_y %>
+                      </td>
+                      <td>
+                        <%= data[i].val_z %>
+                      </td>
+                      <td>
+                        <%= data[i].date %>
+                      </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+              </table>
+  				</div>
+      </div>
+
+      </div>
     </div>
-  </main>
+  </div>
+  <div class="slant"></div>
+</section>
+
+
   <footer>
     <% include footer.ejs %>
   </footer>

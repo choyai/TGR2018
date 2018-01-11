@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -9,36 +10,48 @@
   <header>
     <% include header.ejs %>
   </header>
-  <main>
-    <div class="jumbotron">
-      <table>
-        <tr>
-          <td style="width:80px;">
-            sensID
-          </td>
-          <td style="width:100px;">
-            val
-          </td>
-          <td style="width:80px;">
-            timestamp
-          </td>
-        </tr>
-        <% for(var i=0; i < data.length; i++) { %>
-          <tr>
-            <td style="width:80px;">
-              <%= data[i].sensID %>
-            </td>
-            <td style="width:100px;">
-              <%= data[i].val %>
-            </td>
-            <td style="width:80px;">
-              <%= data[i].date %>
-            </td>
-          </tr>
-          <% } %>
-      </table>
+  <section id="fh5co-home" data-section="home" >
+  <div class="gradient"></div>
+  <div class="container">
+    <div class="text-wrap">
+      <div class="text-innerr">
+          <div class="col-md-12 section-heading text-center" >
+  					<h2 style="color: white;">Temperature</h2>
+            <div class="jumbotron">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="text-center">sensID</th>
+                    <th class="text-center" >val</th>
+                    <th class="text-center">Timestamp</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i < data.length; i++) { %>
+                    <tr>
+                      <td>
+                        <%= data[i].sensID %>
+                      </td>
+                      <td>
+                        <%= data[i].val %>
+                      </td>
+                      <td>
+                        <%= data[i].date %>
+                      </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+              </table>
+  				</div>
+      </div>
+
+      </div>
     </div>
-  </main>
+  </div>
+  <div class="slant"></div>
+</section>
+
+
   <footer>
     <% include footer.ejs %>
   </footer>
