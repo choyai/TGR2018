@@ -15,6 +15,7 @@ var request = require('./routes/request');
 var allTeamSensor = require('./routes/allTeamSensor');
 var api = require('./routes/api');
 var timeapi = require('./routes/timeapi');
+var alert = require('./routes/alert');
 var get_data = require('./script/get_data');
 var script = require('./script/get_all');
 
@@ -40,6 +41,7 @@ app.use('/request', request);
 app.use('/api', api);
 app.use('/api/time', timeapi);
 app.use('/allTeamSensor', allTeamSensor);
+app.use('/alert', alert);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

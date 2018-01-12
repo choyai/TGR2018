@@ -11,6 +11,17 @@ router.use(bodyParser.urlencoded({
   extended: true
 }));
 
+function insert_to_db(table, row) {
+  var schema = db.model(table);
+  var data = new schema(row);
+  data.save(function(err, result) {
+    if (err) {
+      throw (err);
+      console.log('dbError');
+    }
+  });
+}
+
 const status = {
   "00": {
     code: "00",
@@ -26,19 +37,27 @@ const status = {
   }
 };
 
-// GET alert
-// rou
+// GET ALLL DATA FROM ALL DAY
+// router.get('/', function(req, res) {
+//   Promise.all([
+//     querySensor(req, res, 'accelerometer'),
+//     querySensor(req, res, 'temperature'),
+//     querySensor(req, res, 'din1')
+//   ]).then((results) => {
+//     res.json({
+//       statusCode: status["00"].code,
+//       statusDesc: status["00"].desc,
+//       data: results
+//     });
+//   });
+// requestSensors(req, res, sensors, function(result) {
+// });
+// });
+
+
+
 
 // POST timestamp at which to redirect to
-// POST alert
-// team id : int
-// description : string
-
-// router.post('/alert', function(req, res){
-//   var teamID = req.body.teamID;
-//   var description = req.body.description;
-//   res.redirect(/:teamID/:);
-// });
 
 router.post('/:table/:teamID', function(req, res) {
   var table = req.params.table;
@@ -84,6 +103,7 @@ function querySensor(req, res, sensor) {
   var sensors = ['accelerometer', 'temperature', 'din1'];
   var starttime = req.params.starttime;
   var endtime = req.params.endtime;
+
 
   var starthour = parseInt(starttime.slice(0, 2));
   console.log(starthour);
