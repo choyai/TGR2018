@@ -34,6 +34,8 @@ router.get('/:table/:teamID/:N', function(req, res) {
   var N = req.params.N;
   var query = db.model(table).find({
     teamID: teamID
+  }).sort({
+    date: 'desc'
   });
   if (N != 'all') {
     query = query.limit(parseInt(N));
@@ -53,6 +55,7 @@ router.get('/:table/:teamID/:N', function(req, res) {
       //     data: data
       // });
       // console.log(data);
+
       res.render(table, {
         data: data
       });
@@ -60,27 +63,16 @@ router.get('/:table/:teamID/:N', function(req, res) {
   });
 });
 
-//GET sensor data for 30 minutes prior to timestamp
-
-router.get('/time/:table/:teamID/:timestamp', function(req, res) {
+//GET data for a sensor
+router.get('/:table', function(req, res) {
   var table = req.params.table;
-  var teamID = req.params.teamID;
-  var timestamp = new Date(parseInt(req.params.timestamp));
-  var unixtime = timestamp.getTime();
-  var timemin = new Date(unixtime - 1800000);
-  console.log(timemin);
-  console.log(unixtime);
-  console.log(timestamp);
-  var query = db.model(table).find({
-    teamID: teamID,
-    date: {
-      '$lte': timestamp
-    },
-    // date: {
-    //   '$gt': timemin
-    // }
+  // var N = req.params.N;
+  var query = db.model(table).find().sort({
+    date: 'desc'
   });
-
+  // if (N != 'all') {
+  //   query = query.limit(parseInt(N));
+  // }
   query.exec(function(err, data) {
     if (err) {
       res.send(err);
@@ -96,6 +88,7 @@ router.get('/time/:table/:teamID/:timestamp', function(req, res) {
       //     data: data
       // });
       // console.log(data);
+
       res.render(table, {
         data: data
       });
@@ -107,6 +100,8 @@ router.get('/time/:table/:teamID/:timestamp', function(req, res) {
 router.post('/:table', function(req, res) {
   var table = req.params.table;
   var schema = db.model(table);
+  console.log(req.body.date);
+  req.body.date = new Date(parseInt(req.body.date));
   var data = new schema(req.body);
   data.save(function(err, result) {
     if (err) res.send(err);
@@ -114,24 +109,5 @@ router.post('/:table', function(req, res) {
   });
 });
 
-// POST timestamp at which to redirect to
-
-router.post('/:table/:teamID/:N', function(req, res) {
-  var table = req.params.table;
-  // var schema = db.model(table);
-  // var data = new schema(req.body);
-  // data.save(function(err, result){
-  //     if (err) res.send(err);
-  //     else res.send('success');a
-  // });
-  var timestamp = req.body.timestamp;
-  var table = req.params.table;
-  var teamID = req.params.teamID;
-  if (typeof time === 'Date') {
-    res.redirect('/:table/:teamID/:timestamp');
-  } else {
-    res.send('error, time is not time');
-  }
-});
 
 module.exports = router;

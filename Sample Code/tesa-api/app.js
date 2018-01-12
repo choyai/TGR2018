@@ -12,9 +12,11 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var about = require('./routes/about');
 var request = require('./routes/request');
+var allTeamSensor = require('./routes/allTeamSensor');
 var api = require('./routes/api');
-
-var script = require('./script/get_data');
+var timeapi = require('./routes/timeapi');
+var get_data = require('./script/get_data');
+var script = require('./script/get_all');
 
 var app = express();
 
@@ -37,6 +39,8 @@ app.use('/users', users);
 app.use('/about', about);
 app.use('/request', request);
 app.use('/api', api);
+app.use('/api/time', timeapi);
+app.use('/allTeamSensor', allTeamSensor);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -55,9 +59,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-var i = [1, 3, 5, 7, 31, 47];
-setInterval(function() {
-  script(5)
-}, 5000);
+
+// setInterval(function() {
+//   get_data();
+// }, 6000);
+
+script(60000);
 
 module.exports = app;
