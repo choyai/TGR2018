@@ -21,6 +21,7 @@
               <table class="table">
                 <thead>
                   <tr>
+                    <th class="text-center">TeamID</th>
                     <th class="text-center">sensID</th>
                     <th class="text-center" >val</th>
                     <th class="text-center">Timestamp</th>
@@ -29,6 +30,9 @@
                 <tbody>
                   <% for(var i=0; i < data.length; i++) { %>
                     <tr>
+                      <td>
+                        <%= data[i].teamID %>
+                      </td>
                       <td>
                         <%= data[i].sensID %>
                       </td>
