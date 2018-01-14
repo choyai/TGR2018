@@ -65,6 +65,6 @@ app.use(function(err, req, res, next) {
 //   get_data();
 // }, 6000);
 
-script(60000);
+script(30000);
 
 module.exports = app;
